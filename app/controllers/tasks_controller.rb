@@ -1,7 +1,4 @@
 class TodosController < ApplicationController
-  before_action :signed_in_customer
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_completed]
-  before_action :verify_correct_customer, only: [:show, :edit, :update, :destroy]
 
   def toggle_completed
     @task.completed = !@task.completed
@@ -35,7 +32,7 @@ class TodosController < ApplicationController
 
   # POST /todos
   def create
-    @task = Task.new(task_params)
+    @task = task.new(task_params)
     @task.customer = current_customer
 
     respond_to do |format|
@@ -51,15 +48,15 @@ class TodosController < ApplicationController
 
   # PATCH/PUT /todos/1
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to task_path, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @task.update(task_params)
+    #     format.html { redirect_to task_path, notice: 'Task was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @task }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @task.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /todos/1

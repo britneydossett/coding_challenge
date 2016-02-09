@@ -34,7 +34,6 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        sign_in @customer
         format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @customer }
       else

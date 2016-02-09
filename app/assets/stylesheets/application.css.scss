@@ -4,6 +4,7 @@
 @import "bootstrap-sprockets.scss";
 @import "bootstrap.scss";
 @import "bootstrap-modal";
+@import "rails_bootstrap_forms";
 
 /*.modal {
   position: fixed;
@@ -28,14 +29,63 @@
           background-clip: padding-box;
 }*/
 
+body {
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+thead {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.table > thead > tr >th {
+  vertical-align: middle;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+}
+
+tbody {
+  color: white;
+  border-radius: 10px;
+}
+
+.form-control {
+      -webkit-border-radius: 4px !important;
+         -moz-border-radius: 4px !important;
+              border-radius: 4px !important;
+      -webkit-border-top: 4px !important;
+         -moz-border-top: 4px !important;
+              border-top: 4px !important;
+      -webkit-border-bottom: 4px !important;
+         -moz-border-bottom: 4px !important;
+              border-bottom: 4px !important;
+    }
+
 .page-header {
   a.btn {
     float: right;
   }
 
   a.btn + a.btn {
-    margin-right: 8px;
+    margin-right: 20px;
   }
+
+  border-bottom: none;
+}
+
+.yellow-name {
+  color: #FFFAAE;
+}
+
+.glyphicon {
+  color: #F89617;
+  font-size: 40px;
+  line-height: 0;
+  display: -webkit-inline-box;
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -47,7 +97,6 @@ input[type="radio"], input[type="checkbox"] {
 main {
   margin: 20px auto;
   width: 800px;
-  background-color: purple;
 }
 
 .tasks {

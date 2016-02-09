@@ -1,33 +1,31 @@
 <div class="page-header">
-  <%= render 'modal', class: 'btn btn-primary' do %>
-    <a href="#" class="btn btn-primary btn-lg waves-effect waves-light" data-toggle="modal" data-target="#hp-newsletter">New Customer</a>
-  <% end %>
   <h1>Customer List Test</h1>
 </div>
 
 <div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
+  <table class="table table-striped table-hover">
     <thead>
       <tr>
-            <th>Name</th>
+            <th><%= link_to new_customer_path, class: 'glyphicon glyphicon-plus-sign btn-lg' do %>
+              <!-- data-toggle="modal" data-target="#hp-newsletter" -->
+              <% end %> Name
+            </th>
             <th>Email</th>
             <th>Phone Number</th>
             <th>Time Zone</th>
-            <th colspan="3"></th>
         <th></th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, @customers) do |user| %>
-            <td><%= customer.name %></td>
+      <%= content_tag_for(:tr, @customers) do |customer| %>
+            <td class="yellow-name"><%= customer.name %></td>
             <td><%= customer.email %></td>
             <td><%= customer.phone %></td>
             <td><%= customer.timezone %></td>
             <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>

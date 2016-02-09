@@ -1,3 +1,23 @@
-$body-bg:  #241545;
+$body-bg:  #250E49;
 
-$text-color: white !default;
+$headings-color: white;
+
+//== Tables
+
+//** Padding for `<th>`s and `<td>`s.
+$table-cell-padding:            10px;
+//** Padding for cells in `.table-condensed`.
+$table-condensed-cell-padding:  5px !default;
+
+//** Default background color used for all tables.
+$table-bg:                      #250E49;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               #3B275C;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #513E6D !default;
+$table-bg-active:               $table-bg-hover !default;
+
+//** Border color for table and cell borders.
+$table-border-color:             none;
+
+$input-border-radius:            10px;
