@@ -6,16 +6,11 @@ class CustomersController < ApplicationController
   # GET /users
   def index
     @customers = Customer.all
-    # respond_to do |format|
-    #   if @user.save
-    #     sign_in @user
-    #     format.html { redirect_to root_path }
-    #     format.json { render :show, status: :created, location: @user }
-    # end
   end
 
   # GET /users/1
   def show
+    puts "here is current customer " + current_customer
   end
 
   # GET /users/new
@@ -45,15 +40,6 @@ class CustomersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    # respond_to do |format|
-    #   if @user.update(user_params)
-    #     format.html { redirect_to @user, notice: 'User was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @user }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # DELETE /users/1

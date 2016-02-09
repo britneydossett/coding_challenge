@@ -1,4 +1,4 @@
-class TodosController < ApplicationController
+class TasksController < ApplicationController
 
   def toggle_completed
     @task.completed = !@task.completed
@@ -32,7 +32,7 @@ class TodosController < ApplicationController
 
   # POST /todos
   def create
-    @task = task.new(task_params)
+    @task = Task.new(task_params)
     @task.customer = current_customer
 
     respond_to do |format|
@@ -48,15 +48,6 @@ class TodosController < ApplicationController
 
   # PATCH/PUT /todos/1
   def update
-    # respond_to do |format|
-    #   if @task.update(task_params)
-    #     format.html { redirect_to task_path, notice: 'Task was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @task }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @task.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # DELETE /todos/1
@@ -74,7 +65,7 @@ class TodosController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:description, :completed)
+      params.require(:task).permit(:description, :completed, :customer_id)
     end
 
     def verify_correct_customer
