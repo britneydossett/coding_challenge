@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :sessions, only:[:new, :create, :destroy]
+
+  match '/signup', to: 'customers#new', via: 'get'
+  match '/signin',  to: 'sessions#new', via: 'get'
+
+  resources :customers
+  resources :tasks
+  match 'tasks/:id/toggle_completed', to: 'tasks#toggle_completed', via: 'get'
+
+  root to: 'customers#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

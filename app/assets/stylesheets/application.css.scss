@@ -1,0 +1,58 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" for the icon fonts to work.
+@import "bootstrap-variables.scss";
+@import "bootstrap-custom-variables.scss";
+@import "bootstrap-sprockets.scss";
+@import "bootstrap.scss";
+@import "bootstrap-modal";
+
+/*.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1050;
+  width: 560px;
+  margin: -250px 0 0 -280px;
+  overflow: auto;
+  background-color: #ffffff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  *border: 1px solid #999;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding-box;
+          background-clip: padding-box;
+}*/
+
+.page-header {
+  a.btn {
+    float: right;
+  }
+
+  a.btn + a.btn {
+    margin-right: 8px;
+  }
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: initial;
+  height: initial;
+  margin-top: 7px;
+}
+
+main {
+  margin: 20px auto;
+  width: 800px;
+  background-color: purple;
+}
+
+.tasks {
+  th, td {
+    text-align:center
+  }
+}
+
