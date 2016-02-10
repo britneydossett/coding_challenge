@@ -13,25 +13,20 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks
   def index
     @tasks = Customer.find(current_customer).tasks.order(created_at: :desc)
   end
 
-  # GET /todos/1
   def show
   end
 
-  # GET /todos/new
   def new
     @task = Task.new
   end
 
-  # GET /todos/1/edit
   def edit
   end
 
-  # POST /todos
   def create
     @task = Task.new(task_params)
     # @task.customer = current_customer
@@ -48,17 +43,10 @@ class TasksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /todos/1
   def update
   end
 
-  # DELETE /todos/1
   def destroy
-    @todo.destroy
-    respond_to do |format|
-      format.html { redirect_to task_path, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -71,7 +59,7 @@ class TasksController < ApplicationController
     end
 
     def verify_correct_customer
-      @task = current_customer.tasks.find_by(id: params[:id]) #comes from the url
+      @task = current_customer.tasks.find_by(id: params[:id])
       redirect_to root_url, notice: 'Shame shame! That is not yours.' if @task.nil?
     end
 end
