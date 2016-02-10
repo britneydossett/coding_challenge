@@ -14,7 +14,6 @@ class Customer < ActiveRecord::Base
   validate :phone_pass
 
   def set_timezone
-    #current user is a devise method see https://github.com/plataformatec/devise
     Time.zone = current_customer.timezone if current_customer
   end
 

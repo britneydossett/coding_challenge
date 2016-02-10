@@ -136,12 +136,31 @@ input[type="radio"], input[type="checkbox"] {
   font-size: 45px;
 }
 
-.table-tasks {
+#table-tasks {
   background-color: white;
   border-radius: 25px;
 }
 
-.thead-tasks {
-  padding-top: -10px;
+#tasks-list > tr > td {
+  background-color: #A3A1A5;
+  color: #250E49;
 }
 
+#table-tasks > table > #tasks-list {
+  margin-left: 20px;
+}
+
+.table-two {
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+}
+
+.table-two > thead > tr > th {
+  text-align: left;
+  padding-left: 5px;
+}
+
+.table-two > tbody > tr > td {
+  padding: 10px;
+  margin-left: 20px;
+}

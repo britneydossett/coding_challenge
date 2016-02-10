@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 
   def toggle_completed
+    puts @task.completed
     @task.completed = !@task.completed
     respond_to do |format|
       if @task.save
