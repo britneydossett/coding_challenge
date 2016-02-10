@@ -10,8 +10,12 @@ class CustomersController < ApplicationController
 
   # GET /users/1
   def show
-    puts "here is current customer " + current_customer
+    @task = Task.new
+    @customer = current_customer
+    @tasks = Customer.find(@customer).tasks
   end
+
+  def
 
   # GET /users/new
   def new

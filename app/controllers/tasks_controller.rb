@@ -14,7 +14,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = current_customer.tasks.order(created_at: :desc)
+    @tasks = Customer.find(current_customer).tasks.order(created_at: :desc)
   end
 
   # GET /todos/1
@@ -33,11 +33,12 @@ class TasksController < ApplicationController
   # POST /todos
   def create
     @task = Task.new(task_params)
-    @task.customer = current_customer
+    # @task.customer = current_customer
+    customer = Customer.find(@task.customer_id)
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to tasks_path}
+        format.html { redirect_to customer_path(customer)}
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }

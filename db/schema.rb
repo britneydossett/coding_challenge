@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209000856) do
+ActiveRecord::Schema.define(version: 20160209233640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,17 +27,18 @@ ActiveRecord::Schema.define(version: 20160209000856) do
 
   add_index "customers", ["email"], name: "index_customers_on_email", unique: true, using: :btree
 
-  create_table "tasks", force: :cascade do |t|
-    t.string   "description", null: false
-    t.datetime "date",        null: false
-    t.boolean  "completed"
-    t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "customer_id", null: false
+  create_table "customers_tasks", id: false, force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "task_id",     null: false
   end
 
-  add_index "tasks", ["customer_id"], name: "index_tasks_on_customer_id", using: :btree
+  create_table "tasks", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "date"
+    t.boolean  "completed"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "customer_id"
+  end
 
-  add_foreign_key "tasks", "customers"
 end
