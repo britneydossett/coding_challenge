@@ -24,6 +24,17 @@
   }
 }
 
+.modal-open #modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+    filter: alpha(opacity=50);
+}
+
 .modal-title {
   font-family: Helvetica;
   font-weight: bold;
@@ -137,10 +148,18 @@ thead {
   padding: 10px;
 }
 
-table {
+table, .table-two {
     border-collapse: separate;
     border-spacing: 0px 10px;
-    width: 100%;
+}
+
+#customer-table {
+  width: 100%;
+}
+
+.table-two {
+  width: 92%;
+  margin-left: 4%;
 }
 
 tbody {
@@ -149,11 +168,11 @@ tbody {
   font-size: 14px;
 }
 
-tbody tr:nth-child(odd) {
+.odd {
    background-color: #3B275C;
 }
 
-tbody tr:nth-child(even) {
+.even {
    background-color: #513E6D;
 }
 

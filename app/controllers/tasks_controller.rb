@@ -24,11 +24,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    #customer = Customer.find(@task.customer_id)
+    customer = Customer.find(@task.customer_id).id
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to customer_path(@customer) }
+        format.html { redirect_to customer_path(customer) }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
