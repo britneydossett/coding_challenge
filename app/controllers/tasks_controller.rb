@@ -1,16 +1,10 @@
 class TasksController < ApplicationController
 
-  def toggle_completed
-    puts @task.completed
-    @task.completed = !@task.completed
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to tasks_path }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        #some error message
-      end
-    end
+  def complete
+     @task = Task.find(current_customer)
+     @task.completed = true
+     @task.save
+     redirect_to customer_path(Task.find(current_customer).customer_id)
   end
 
   def index
@@ -29,12 +23,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    # @task.customer = current_customer
-    customer = Customer.find(@task.customer_id)
+    # customer = Customer.find(@task.customer_id)
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to customer_path(customer)}
+        format.html { redirect_to customer_path(1) }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -50,16 +43,9 @@ class TasksController < ApplicationController
   end
 
   private
-    def set_task
-      @task = Task.find(params[:id])
-    end
 
     def task_params
       params.require(:task).permit(:description, :completed, :customer_id)
     end
 
-    def verify_correct_customer
-      @task = current_customer.tasks.find_by(id: params[:id])
-      redirect_to root_url, notice: 'Shame shame! That is not yours.' if @task.nil?
-    end
 end

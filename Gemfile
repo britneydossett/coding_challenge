@@ -5,6 +5,8 @@ gem "font-awesome-rails"
 gem 'bootstrap-modal-rails'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
+gem 'jquery-ui-rails'
+gem 'jquery-modal-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
