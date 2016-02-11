@@ -38,19 +38,10 @@ class CustomersController < ApplicationController
   end
 
   private
-    def set_customer
-      @customer = Customer.find(params[:id])
-    end
-
     def customer_params
       params.require(:customer).permit(:name,
                              :email,
                              :phone )
-    end
-
-    def verify_correct_customer
-      customer = customer.find_by(id: params[:id])
-      redirect_to root_url unless current_customer?(customer)
     end
 
     def new_customer
